@@ -1,0 +1,1 @@
+export const TOKEN_SECRET = "el secreto es el token"; // secret key
