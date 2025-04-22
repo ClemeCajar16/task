@@ -7,12 +7,13 @@ export const authRequired = (req, res, next) => {
     console.log("Cookies:", req.cookies); 
 
 
-    const { token } = req.cookies || {};
-    
-    if (!token) return res.status(401).json({message: "Unauthorized"});
+    const authHeader = req.headers.authorization;
+    const token = authHeader?.split(" ")[1] || req.cookies.token;
+
+    if (!token) return res.status(401).json({message: " no encontrada 😥"});
 
     jwt.verify(token, TOKEN_SECRET, (err, user) => {
-        if (err) return res.status(403).json({message: "Forbidden"});
+        if (err) return res.status(403).json({message: "error 😫"});
       
         req.user = user; 
         console.log("User:", user);
