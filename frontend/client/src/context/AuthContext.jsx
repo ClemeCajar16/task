@@ -14,6 +14,7 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   const signup = async (user) => {
    try {
@@ -24,12 +25,20 @@ export const AuthProvider = ({ children }) => {
     setIsAuthenticated(true);
 
    } catch (error) {
-    console.log(error);
-   }
+      const err = error.response?.data?.message;
+      if (Array.isArray(err)) {
+        setErrors(err);
+      } else if (err) {
+        setErrors([err]);
+      } else {
+        setErrors(["Error desconocido"]);
+      }
+    }
+   
   };
 
   return (
-    <AuthContext.Provider value={{ user, signup, isAuthenticated }}>
+    <AuthContext.Provider value={{ user, signup, isAuthenticated, errors }}>
       {children}
     </AuthContext.Provider>
   );

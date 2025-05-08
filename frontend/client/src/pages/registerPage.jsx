@@ -6,7 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function RegisterPage() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signup, isAuthenticated } = useAuth();
+    const { signup, isAuthenticated} = useAuth();
+    const { errors:registerErrors} = useAuth();
     const navigation = useNavigate();
 
 
@@ -19,6 +20,15 @@ function RegisterPage() {
     return (
 
         <div className='bg-zinc-800 max-w-md p-20 rounded-md'>
+
+{Array.isArray(registerErrors) &&
+  registerErrors.map((error, i) => (
+    <div key={i} className='bg-red-500 p-2 my-2 rounded-md text-white'>
+      {error}
+    </div>
+))}
+
+
 
             <form onSubmit={handleSubmit(async values => {
                 signup(values);

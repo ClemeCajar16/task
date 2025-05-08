@@ -1,11 +1,14 @@
 import User from "../models/user.model.js";
 import bcryptjs from "bcryptjs";
-import { createAccessToken } from "../libs/jwt.js"; // ✅ correcto
+import { createAccessToken } from "../libs/jwt.js"; 
 
 export const register = async (req, res) =>{
     const {email, password, username} = req.body;
 
   try {
+
+   const userFound = await User.findOne({email})
+   if (userFound) return res.status(400).json({"message": "El usuario ya existe"});
 
     const paswordHash = await bcryptjs.hash(password, 10)
     const newUser = new User({
@@ -47,7 +50,7 @@ export const login = async (req, res) =>{
     if (!userFound) return res.status(400).json({message: "Usuario no encontrado"})
 
     const isMatch = await bcryptjs.compare(password, userFound.password)
-    if (!isMatch) return res.status(400).json({message: "Contraseña incorrecta"})
+if (!isMatch) return res.status(400).json(["Contraseña incorrecta"])
 
     
     const token = await createAccessToken({id: userFound._id});
