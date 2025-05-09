@@ -5,7 +5,7 @@ function LoginPage() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const {signin} = useAuth()
+    const { signin, errors: singinErrors } = useAuth()
 
     const onSubmit = handleSubmit((data) => {
         signin(data);
@@ -13,12 +13,21 @@ function LoginPage() {
 
     return (
         <div className="flex h-[calc(100vh-100px)] items-center justify-center  bg-zinc-900">
-           <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+
+                {
+                singinErrors.map((i) => (
+                        <div key={i} className='bg-red-500 p-2 my-2 rounded-md text-white'>
+                            {"invalid email or password"}
+                        </div>
+                    ))}
+
+
                 <h1 className="text-2xl text-center text-white">Login</h1>
                 <form onSubmit={onSubmit}>
 
-                <input type="email" {...register("email", { required: true })} className='w-full  bg-zinc-400 text-black px-4 py-2 rounded-b-md my-3' placeholder='email' />
-                {errors.email && <p className='text-red-500'>email is required </p>}
+                    <input type="email" {...register("email", { required: true })} className='w-full  bg-zinc-400 text-black px-4 py-2 rounded-b-md my-3' placeholder='email' />
+                    {errors.email && <p className='text-red-500'>email is required </p>}
 
                     <input type="password" {...register("password", { required: true })} className='w-full  bg-zinc-400 text-black px-4 py-2 rounded-b-md my-3' placeholder='password' />
                     {errors.password && <p className='text-red-500'>password is required </p>}
@@ -27,7 +36,7 @@ function LoginPage() {
                         Login
                     </button>
                 </form>
-           </div>
+            </div>
         </div>
     )
 
