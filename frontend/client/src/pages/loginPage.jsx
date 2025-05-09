@@ -1,11 +1,14 @@
 import { useForm } from "react-hook-form";
+import { useAuth } from "../context/AuthContext";
 
 function LoginPage() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const {signin} = useAuth()
+
     const onSubmit = handleSubmit((data) => {
-        console.log(data);
+        signin(data);
     });
 
     return (
