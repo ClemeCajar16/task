@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function RegisterPage() {
 
@@ -18,6 +19,8 @@ function RegisterPage() {
     }, [isAuthenticated])
 
     return (
+
+        <div className="flex items-center justify-center min-h-screen">
 
         <div className='bg-zinc-800 max-w-md p-20 rounded-md'>
 
@@ -54,8 +57,14 @@ function RegisterPage() {
                 </button>
 
             </form>
-        </div>
 
+            <p className="flex gap-x-2 justify-between">
+                    Already have an account? 
+                    <Link to="/login" className="text-blue-300">
+                    login</Link></p>
+
+        </div>
+        </div>
     )
 }
 

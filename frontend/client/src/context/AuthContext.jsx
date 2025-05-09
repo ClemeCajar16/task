@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { registerRequest, loginRequest } from "../api/auth.js";
 
 export const AuthContext = createContext();
@@ -43,7 +43,10 @@ export const AuthProvider = ({ children }) => {
       console.log(res)
 
     } catch (error) {
-      setErrors([error.response.data]);
+      if (Array.isArray(error.response.data)) {
+        return setErrors(error.response.data);
+      }
+      setErrors([error.response.data.message]);
     }
   }
 

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
 
@@ -18,7 +19,7 @@ function LoginPage() {
                 {
                 singinErrors.map((i) => (
                         <div key={i} className='bg-red-500 p-2 my-2 rounded-md text-white'>
-                            {"invalid email or password"}
+                            {"invalid email or password"}  
                         </div>
                     ))}
 
@@ -36,6 +37,11 @@ function LoginPage() {
                         Login
                     </button>
                 </form>
+
+                <p className="flex gap-x-2 justify-between">
+                    don't have an account? 
+                    <Link to="/register" className="text-blue-300">
+                    Sign up</Link></p>
             </div>
         </div>
     )
