@@ -1,27 +1,31 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterPage from "./pages/registerPage";
 import LoginPage from "./pages/loginPage";
+import HomePage from "./pages/homePage";
+import TasksPage from "./pages/tasksPage";
+import TasksFormPage from "./pages/taskFormPage";
+import ProfilePage from "./pages/profilePage";
+import Intruction from "./pages/instruction";
 import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-
-  return (
+  return ( 
     <AuthProvider>
-
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<h1>Home</h1>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/tasks" element={<h1>tasks page</h1>} />
-          <Route path="/add-task" element={<h1>new task</h1>} />
-          <Route path="/task/:id" element={<h1>update tasks</h1>} />
-          <Route path="/profile" element={<h1>profile</h1>} />
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/add-task" element={<TasksFormPage />} />
+          <Route path="/task/:id" element={<TasksFormPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/intruction" element={<Intruction />} />
         </Routes>
       </BrowserRouter>
-
     </AuthProvider>
-  )
+  );
 }
 
-export default App
+export default App;
+
