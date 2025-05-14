@@ -1,8 +1,15 @@
-
+import { use, useEffect } from "react";
+import { useTasks } from "../context/TaskContext";
 
 
 function tasksPage() {
+     const {getTasks} = useTasks();
 
+     useEffect(() => {
+
+        getTasks();
+
+     }, []);
     
 
     return (
