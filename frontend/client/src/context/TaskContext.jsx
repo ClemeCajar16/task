@@ -16,8 +16,12 @@ export function TaskProvider({ children }) {
 
     const [tasks, setTasks] = useState([]);
 
+    const createTask = async (task) => {
+        console.log(1010001)
+    }
+
     return (
-        <TaskContext.Provider value={{tasks}}>
+        <TaskContext.Provider value={{tasks, createTask}}>
             {children}
         </TaskContext.Provider>
     );
