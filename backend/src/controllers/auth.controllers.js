@@ -10,7 +10,7 @@ export const register = async (req, res) =>{
   try {
 
    const userFound = await User.findOne({email})
-   if (userFound) return res.status(400).json({"message": "El usuario ya existe"});
+   if (userFound) return  status(400).json({"message": "El usuario ya existe"});
 
     const paswordHash = await bcryptjs.hash(password, 10)
     const newUser = new User({
@@ -57,7 +57,10 @@ if (!isMatch) return res.status(400).json(["Contraseña incorrecta"])
     
     const token = await createAccessToken({id: userFound._id});
 
-res.cookie('token', token);
+res.cookie('token', token, {
+  cameSite: "none",
+  secure: true,
+});
 
     res.json({
         id: userFound._id,
