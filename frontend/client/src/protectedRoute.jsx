@@ -4,7 +4,7 @@ import { useAuth } from "./context/AuthContext";
 function ProtectedRoute() {
   
   const { loading, isAuthenticated } = useAuth();
-console.log(loading,isAuthenticated);
+
 
 if (loading) return <div className="loader">loading...</div>;
   if (!isAuthenticated) return <Navigate to="/login" replace/>;

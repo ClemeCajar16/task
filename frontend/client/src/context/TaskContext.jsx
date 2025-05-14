@@ -19,12 +19,18 @@ export function TaskProvider({ children }) {
 
 const getTasks = async () => {
      const res = await getTasksRequest();
-     console.log(res);
+     
+     try {
+        
+        setTasks(res.data);
+
+     } catch (error) {
+        console.log(error);
+     }
 }
 
     const createTask = async (task) => {
         const res = await createTaskRequest(task); 
-        console.log(res);
     }
 
 
