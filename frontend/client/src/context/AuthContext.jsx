@@ -24,7 +24,6 @@ const [loading, setLoading] = useState(true);
     try {
 
       const res = await registerRequest(user);
-      console.log(res.data);
       setUser(res.data);
       setIsAuthenticated(true);
 
