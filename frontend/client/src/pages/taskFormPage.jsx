@@ -5,12 +5,10 @@ function TaskFormPage() {
   
   const {register, handleSubmit} = useForm();
   const {createTask} = useTasks();
-  console.log(createTask())
-    
 
 
   const onSubmit = handleSubmit((data) =>  {
-  createTask(data)
+  createTask(data);
   })
   
   return (
@@ -20,7 +18,7 @@ function TaskFormPage() {
                 <textarea className="w-full bg-zinc-500  text-white px4 py-3 rounded-md" placeholder="description" {...register("description")}>
 
                 </textarea>
-            <button type='submit' className='bg-zinc-700 text-white px-4 py-2 rounded-md'>
+            <button type='submit' className='bg-zinc-700 cursor-pointer text-white px-4 py-2 rounded-md'>
                 save
             </button>
             </form>

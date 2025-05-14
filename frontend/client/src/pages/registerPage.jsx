@@ -52,7 +52,7 @@ function RegisterPage() {
                 {errors.password && <p className='text-red-500'>password is required </p>}
 
 
-                <button type='submit' className='bg-zinc-500 text-white px-4 py-2 rounded-md'>
+                <button type='submit' className='bg-zinc-500 text-white cursor-pointer px-4 py-2 rounded-md'>
                     register
                 </button>
 
