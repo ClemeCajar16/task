@@ -1,8 +1,8 @@
 import { useAuth } from "../context/AuthContext";
 
 function Navbar(){
-
-    const {isAuthenticated} = useAuth();
+;
+    const {isAuthenticated, logout} = useAuth();
 
     return(
        <nav className="bg-zinc-600 my-3 flex justify-between py-0 px-10">
@@ -16,8 +16,10 @@ function Navbar(){
 
                 {isAuthenticated ? (
                     <>
-                <li><a className="font-bold" href="/add-tasks">add tasks</a></li>
-                <li><a className="font-bold" href="/add-tasks">logout</a></li>
+                <li><a className="font-bold" href="/add-task">add tasks</a></li>
+                <li><a className="font-bold" href="/" onClick={() => {
+                    logout();
+                }}>logout</a></li>
                     </>
             ) : (
                     <> 
