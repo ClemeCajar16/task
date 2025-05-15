@@ -22,7 +22,7 @@ function RegisterPage() {
 
         <div className="flex items-center justify-center min-h-screen">
 
-        <div className='bg-zinc-800 max-w-md p-20 rounded-md'>
+        <div className='bg-slate-900 max-w-md p-20 rounded-md'>
 
             <h1 className="text-2xl text-center text-white">register</h1>
 

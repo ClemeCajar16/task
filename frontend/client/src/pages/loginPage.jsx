@@ -23,7 +23,7 @@ function LoginPage() {
 
     return (
         <div className="flex h-[calc(100vh-100px)] items-center justify-center  bg-zinc-900">
-            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+            <div className="bg-slate-950 max-w-md w-full p-10 rounded-md">
 
                 {
                 singinErrors.map((i) => (
