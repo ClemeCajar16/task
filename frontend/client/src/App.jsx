@@ -9,12 +9,16 @@ import Intruction from "./pages/instruction";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./protectedRoute";
 import { TaskProvider } from "./context/TaskContext.jsx";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+        <Navbar>
+
+        </Navbar>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
