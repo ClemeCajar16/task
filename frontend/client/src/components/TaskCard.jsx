@@ -1,11 +1,18 @@
+import { useTasks } from "../context/TaskContext";
+
+
 function TaskCard({task}) {
+   
+   const {deleteTask} = useTasks()
     return(
         <div>
              <div className="bg-slate-950 max-w-md w-full p-10">
 
                 <header className="flex justify-between">
                     <div className="flex gap-x-2 "> 
-                    <button className="bg-red-700 px-3">delete</button>
+                    <button onClick= {() => {
+                         deleteTask(task._id)
+                    }} className="bg-red-700 px-3">delete</button>
                     <button className="bg-sky-700 px-5">edit</button>
                 </div>
                 </header>
