@@ -5,7 +5,7 @@ function Navbar(){
     const {isAuthenticated, logout} = useAuth();
 
     return(
-       <nav className="bg-zinc-600 my-3 flex justify-between py-0 px-10">
+       <nav className="w-full max-w-6xl flex justify-between items-center py-4 px-6 bg-gray-800 rounded-2xl shadow-md mb-8">
 
             <a href="/">
                     <h1 className="text-2xl font-bold">tasks manager</h1>
