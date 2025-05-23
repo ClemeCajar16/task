@@ -31,7 +31,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/tasks" element={<TasksPage />} />
               <Route path="/add-task" element={<TasksFormPage />} />
-              <Route path="/task/id" element={<TasksFormPage />} />
+              <Route path="/tasks/:id" element={<TasksFormPage />} />
               <Route path="/profile" element={<ProfilePage />} />
             </Route>
 

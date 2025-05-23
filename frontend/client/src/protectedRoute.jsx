@@ -10,9 +10,8 @@ if (loading) return <div className="loader">loading...</div>;
   if (!isAuthenticated) return <Navigate to="/login" replace/>;
 
  
-    return (    
-        <Outlet />
-  );
+    return <Outlet />
+  
 }
 
 export default ProtectedRoute;

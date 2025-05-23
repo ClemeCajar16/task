@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { createTaskRequest, getTasksRequest, deleteTaskRequest } from "../api/tasks";
+import { createTaskRequest, getTasksRequest, deleteTaskRequest, getTaskRequest } from "../api/tasks";
 
 const TaskContext = createContext();
 
@@ -45,9 +45,11 @@ export function TaskProvider({ children }) {
         }
     }
 
+    const getTask = (id) =>getTaskRequest(id);
+
 
     return (
-        <TaskContext.Provider value={{ tasks, createTask, getTasks, deleteTask }}>
+        <TaskContext.Provider value={{ tasks, createTask, getTasks, deleteTask, getTask }}>
             {children}
         </TaskContext.Provider>
     );
