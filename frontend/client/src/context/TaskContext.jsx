@@ -44,8 +44,14 @@ export function TaskProvider({ children }) {
             console.log(error)
         }
     }
-
-    const getTask = (id) =>getTaskRequest(id);
+    const getTask = async (id) =>{
+        try {
+           const res = await getTaskRequest(id)
+            return res.data
+        } catch (error) {
+            console.warn(error)
+        }
+    };
 
 
     return (
